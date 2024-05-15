@@ -1,0 +1,54 @@
+<!--<head>-->
+<!--    <title>Поворот изображения</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Поверните изображение</h1>-->
+<!--    <form method="post" enctype="multipart/form-data">-->
+<!--        <input type="file" name="image" accept="image/*" required>-->
+<!--        <input type="number" name="angle" placeholder="Введите угол поворота" required>-->
+<!--        <button type="submit">Повернуть</button>-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--    <html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Вращение изображения</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Вращение изображения на Flask</h1>-->
+
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>FastAPI Website Starter</title>
+ <link rel="stylesheet" type="text/css" href="/static/styles.css">
+ <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+ <script>
+ var correctCaptcha = function(response) {
+        document.getElementsByName('resp')[0].value = response;
+ };
+ </script>
+</head>
+<body>
+<div class="container mt-5">
+ <h1>Rotate Image</h1>
+ <form method="post" action="/rotate_cross" enctype="multipart/form-data">
+ <div class="form-group">
+ <label for="angle">Angle:</label>
+ <input type="number" class="form-control" id="angle" name="angle" required>
+ </div>
+ <div class="form-group">
+ <input type="hidden" class="form-control" id = "resp" name="resp" value = "0" required>
+ </div>
+ <div class="form-group">
+ <div class="g-recaptcha" id="rcaptcha" data-sitekey="6Le77c4pAAAAAJ1xcz0fSRIeVyum-9F3Ag3eAozM" data-callback="correctCaptcha"> </div>
+ </div>
+ <button type="submit" class="btn btn-primary">Submit</button>
+ </form>
+</div>
+</body>
+</html>
+
