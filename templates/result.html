@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Result</h1>
-    <img src="{{ rotated_img }}" alt="Rotated Image">
+    <img src="{{ url_for('static', rotated_img) }}" alt="Rotated Image">
     <a href="/">Go back to home page</a>
     <h2>Color Distribution</h2>
     <img src="{{ url_for('static', path=color_distribution) }}" alt="Color Distribution">
