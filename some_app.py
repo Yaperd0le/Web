@@ -32,11 +32,11 @@ async def rotate_cross(request:Request, angle:int = Form(), resp:str = Form()):
     print(result)
     if result["success"]:
         # Открыть изображение которое лежит в папке static
-        with Image.open(f"./static/bab.jpg") as img:
+        with Image.open("./static/bab.jpg") as img:
             # Rotate the image by the specified angle
             rotated_img = img.rotate(angle)
             # Save the rotated image with a new filename
-            rotated_img.save(f"./static/_rotated.jpg")
+            rotated_img.save("./static/rotated.jpg")
             # Получаем данные о цвете изображения
             original_img_colors = np.array(rotated_img.convert("RGB")).reshape(-1, 3)# данные о цвете пикселей
             # Создаем гистограмму для исходного изображения
@@ -57,7 +57,7 @@ async def rotate_cross(request:Request, angle:int = Form(), resp:str = Form()):
                # Сохраняем график в файл
             plt.savefig('./static/color_distribution.png')
             # Возвращаем имя файла графика
-        return templates.TemplateResponse("result.html", {"request": request, "filename": f"_rotated.jpg","color_distribution": "color_distribution.png"})
+        return templates.TemplateResponse("result.html", {"request": request, "filename": "rotated.jpg","color_distribution": "color_distribution.png"})
     else:
         # в случае неуспеха проверки Captcha возвращаем 400
         raise HTTPException(status_code=400, detail="Ошибка проверки капчи")
