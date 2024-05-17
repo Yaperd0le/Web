@@ -57,7 +57,7 @@ async def rotate_cross(request:Request, angle:int = Form(), resp:str = Form()):
                # Сохраняем график в файл
             plt.savefig('./static/color_distribution.png')
             # Возвращаем имя файла графика
-        return templates.TemplateResponse("result.html", {"request": request, "filename": "_rotated.jpg","color_distribution": "color_distribution.png"})
+        return templates.TemplateResponse("result.html", {"request": request, "filename": f"_rotated.jpg","color_distribution": "color_distribution.png"})
     else:
         # в случае неуспеха проверки Captcha возвращаем 400
         raise HTTPException(status_code=400, detail="Ошибка проверки капчи")
